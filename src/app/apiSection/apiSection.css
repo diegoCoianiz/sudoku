@@ -1,0 +1,50 @@
+.apiSectionPage {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #333;
+    margin-top: 20px;
+    text-align: left;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+code {
+    background-color: #e1e1e1;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 500px) {
+    .apiSectionPage {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}

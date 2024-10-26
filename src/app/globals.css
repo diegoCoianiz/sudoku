@@ -1,33 +1,22 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  background-color: white;
 }
 
 body {
-  color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: #000;
 }
 
 a {
@@ -38,5 +27,707 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+/* --------------------------- DificultyButtons ----------------------------- */
+
+.dificultyButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dificultyButtonsContainer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dificultyButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Espacio entre los botones */
+  width: 100%;
+  max-width: 300px;
+  /* Tamaño máximo de los botones */
+}
+
+.dificultyButtons button {
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: #008CBA;
+  /* Color de fondo del botón */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.dificultyButtons button:hover {
+  background-color: #005f73;
+  /* Cambia el color al pasar el cursor */
+  transform: translateY(-2px);
+  /* Efecto de elevación al pasar el cursor */
+}
+
+.dificultyButtons button:active {
+  background-color: #004046;
+  /* Color al hacer clic */
+  transform: translateY(0);
+  /* Elimina la elevación cuando se presiona */
+}
+
+/*  ----------------------- SLIDER VISIBILIDAD ----------------------------- */
+
+.dificultyButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.dificultyButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.visibilitySlider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin-top: 20px;
+}
+
+.visibilitySlider input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.visibilitySlider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #00796b;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.visibilitySlider input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #00796b;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.visibilitySlider input[type="range"]:hover::-webkit-slider-thumb,
+.visibilitySlider input[type="range"]:hover::-moz-range-thumb {
+  background-color: #004d40;
+}
+
+.visibilityLabels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.visibilityLabels span {
+  font-size: 14px;
+  color: #333;
+}
+
+
+/* ----------------------- SUDOKU GRID ------------------------------- */
+.generalGrid {
+  display: flex;
+  /* Flexbox para centrar contenido */
+  flex-direction: column;
+  /* Los elementos hijos estarán en columna */
+  align-items: center;
+  /* Alinea los elementos en el centro horizontalmente */
+  justify-content: center;
+  /* Centra verticalmente */
+  background-color: var(--background);
+  /* Color de fondo variable */
+  gap: 20px;
+  /* Espacio entre los elementos */
+  box-sizing: border-box;
+  /* Asegura que el padding esté incluido en el tamaño total */
+}
+
+.grid {
+  width: fit-content;
+  display: grid;
+  gap: 2px;
+  /* Espacio entre celdas más destacado */
+  border: 3px solid #4affcde0;
+  /* Borde más grueso y color más suave */
+  background-color: #f2f2f2;
+  /* Fondo suave para el tablero */
+  margin: 20px auto;
+  /* Añade un poco de margen superior/inferior */
+  border-radius: 10px;
+  /* Bordes redondeados del tablero */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  /* Sombra suave para dar profundidad */
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  /* Bordes suaves entre celdas */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  /* Sombra suave en cada celda */
+  border-radius: 5px;
+  /* Bordes sutilmente redondeados */
+}
+
+.cell:hover {
+  background-color: #e0f7fa;
+  /* Color sutil al pasar el ratón */
+  transform: scale(1.05);
+  /* Ligeramente más grande al hacer hover */
+}
+
+.cell.selected {
+  background-color: #a7ffeb;
+  /* Fondo destacado para la celda seleccionada */
+  border: 2px solid #00796b;
+  /* Borde más intenso en la celda seleccionada */
+}
+
+.cell-right-border {
+  border-right: 2px solid #ff00eb;
+}
+
+.cell-bottom-border {
+  border-bottom: 2px solid #ff00eb;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(4, 50px);
+  /* Ajuste de tamaño para celdas más grandes */
+}
+
+.grid-3 {
+  grid-template-columns: repeat(9, 50px);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(16, 50px);
+}
+
+.number-input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.number-input button {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  font-size: 18px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.number-input button:hover {
+  background-color: #004d40;
+  /* Color más oscuro al hacer hover */
+  transform: scale(1.1);
+  /* Ligeramente más grande al hacer hover */
+}
+
+.number-input button:active {
+  background-color: #00251a;
+  /* Color más oscuro al hacer click */
+}
+
+.number-input button:focus {
+  outline: none;
+  /* Eliminar outline en botones al hacer foco */
+}
+
+/* Números originales en negro y con un peso más marcado */
+.original-number {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Números ingresados por el usuario en verde */
+.user-number {
+  color: #388e3c;
+  /* Verde más suave y legible */
+  font-weight: 600;
+  /* Resalta los números del usuario */
+  font-size: 1.1rem;
+}
+
+/* Números con animación al ser ingresados */
+.user-number {
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.user-number:hover {
+  transform: scale(1.1);
+  /* Efecto de escala al hacer hover en números del usuario */
+  color: #2e7d32;
+  /* Un verde más oscuro al pasar el ratón */
+}
+
+/*  ----------------------- SEND BUTTON --------------------------------- */
+
+.submit-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: #00796b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #004d40;
+  /* Color más oscuro al hacer hover */
+  transform: scale(1.05);
+  /* Efecto de agrandado ligero */
+}
+
+.submit-button:active {
+  background-color: #00251a;
+  /* Color más oscuro al hacer click */
+}
+
+/* ---------------------- RESULT BOARD ------------------------------------- */
+.result-board-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.result-board {
+  background-color: #000;
+  display: grid;
+  gap: 1px;
+  border: 2px solid #000;
+}
+
+.result-cell {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  /* Tamaño de texto más pequeño */
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+
+p,
+h3 {
+  color: #000;
+}
+
+@media (max-width: 500px) {
+  .original-number {
+    font-size: .65rem;
+  }
+
+  .grid-2 {
+    .original-number {
+      font-size: 1rem;
+    }
+
+    .user-number {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Ajustes específicos para Sudoku 3x3 (9x9 celdas) */
+  .grid-3 {
+    grid-template-columns: repeat(9, 35px);
+    /* Ajustamos el tamaño para un 3x3 */
+    gap: 2px;
+    /* Reducimos el espacio entre celdas */
+    margin: 10px auto;
+    /* Reducimos el margen */
+    border-radius: 5px;
+    /* Ajustamos los bordes */
+  }
+
+  .grid-3 {
+    .original-number {
+      font-size: 1rem;
+    }
+    .user-number {
+      font-size: 0.9rem;
+    }
+  }
+
+  .grid-3 .cell {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    /* Ajustamos el tamaño de la fuente */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* Reducimos la sombra */
+    border-radius: 3px;
+    /* Bordes más pequeños */
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(16, 20px);
+    /* Reducimos aún más el tamaño de las celdas */
+    gap: 3px;
+    /* Mantener espacio entre las celdas */
+    margin: 5px auto;
+    /* Reducir márgenes */
+    border-radius: 5px;
+    /* Bordes más pequeños */
+  }
+
+  .grid-4 .cell {
+    width: 20px;
+    /* Celdas más pequeñas */
+    height: 23px;
+    /* Reducimos la altura de las celdas */
+    font-size: 20px;
+    /* Reducimos el tamaño de la fuente */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    /* Sombra más ligera */
+    border-radius: 2px;
+    /* Bordes más pequeños */
+  }
+
+  .number-input {
+    margin-top: 25px;
+    /* Reducimos el espacio superior */
+  }
+
+  .number-input button {
+    height: 30px;
+    /* Ajustamos la altura */
+    margin: 0 1px;
+    /* Reducimos el margen entre los botones */
+    padding: 0 1px;
+    font-size: 12px;
+    /* Reducimos el tamaño de la fuente */
+  }
+
+  .user-number {
+    font-size: .5rem;
+    /* Reducimos el tamaño de la fuente */
+  }
+
+  .user-number:hover {
+    transform: scale(1.05);
+    /* Reducimos la escala al hacer hover */
+  }
+}
+
+
+/* --------------------------------------- HEADER ---------------------------------------- */
+/* Estilos generales del header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #008CBA, #009664);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Estilo del logo */
+.header .logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.header .logo p{
+  color: white;
+  margin: 0px;
+  margin-left: 55px;
+}
+
+/* Navegación */
+.header .nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+.header .nav ul li {
+  font-size: 1rem;
+}
+
+.header .nav ul li button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 5px 8px;
+  transition: color 0.3s ease, background 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.header .nav ul li button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #e0f7fa;
+}
+
+/* Botones de autenticación */
+.auth-buttons button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Botón de login */
+.auth-buttons .login-btn {
+  background: #ffffff;
+  color: #004aad;
+  margin-right: 10px;
+}
+
+.auth-buttons .login-btn:hover {
+  background: #e0f7fa;
+  color: #004aad;
+}
+
+/* Botón de registro */
+.auth-buttons .signup-btn {
+  background: #004aad;
+  color: #ffffff;
+}
+
+.auth-buttons .signup-btn:hover {
+  background: #0078e7;
+}
+
+/* Media Query para pantallas menores a 500px */
+@media (max-width: 500px) {
+  .header {
+    flex-direction: row;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .header .logo h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .header .logo p{
+    margin-left: 55px;
+    margin-top: -10px;
+    margin-bottom: -15px;
+  }
+
+  .header .nav ul {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .auth-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+
+  .auth-buttons button {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+}
+
+/* --------------------------------------  FOOTER ---------------------------------------- */
+/* Estructura del footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #009664, #008CBA);
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  /* bottom: 0;
+  left: 0; */
+}
+
+/* Estilo de los enlaces */
+.footer ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.footer ul li a {
+  color: #e0f7fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.footer ul li a:hover {
+  color: #ffffff;
+}
+
+
+
+/* Media Query para pantallas menores de 500px */
+@media (max-width: 500px) {
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .footer ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/*  ----------------------------- MAIN -------------------------------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sudoku-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Media Query para pantallas de menos de 500px */
+@media (max-width: 500px) {
+  .main-content {
+    margin: 11% 0px;
+  }
+}
+
+/* ---------------------- SIDEBAR superior del tablero de sudoku ------------------------------ */
+.sidebar {
+  width: 100%;
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  padding-top: 15px;
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: -25px;
+  height: 70px;
+}
+
+.timer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timer h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.timer p {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.color-palette {
+  text-align: center;
+}
+
+.color-palette h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.color-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.color-button:hover {
+  transform: scale(1.1);
+}
+/* Media Query para pantallas de menos de 500px */
+@media (max-width: 500px) {
+  .sidebar {
+   margin-top: -40px;
+   height: 80px;
   }
 }
