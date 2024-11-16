@@ -132,11 +132,6 @@ function hideRandomCells(board, visibility) {
 }
 
 function validateSudokuSolution(solution, originalBoard) {
-  // Verificar que la longitud de la solución coincide con el tamaño del tablero
-  if (solution.length !== originalBoard.length * originalBoard[0].length) {
-    return false;
-  }
-
   if (JSON.stringify(solution) === JSON.stringify(originalBoard.flat())) return true
   return false
 }
@@ -166,7 +161,7 @@ export async function GET(request) {
   generatedBoards[boardId] = fullBoard;
   // console.log("se crea el tablero: ", boardId)
 
-  // Configura un temporizador para eliminar el tablero después de 10 minutos
+  // Configura un temporizador para eliminar el tablero después de 'x' minutos
   const minutes = square > 3 ? 60 : 30 
   setTimeout(() => {
     delete generatedBoards[boardId];

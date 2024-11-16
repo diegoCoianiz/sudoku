@@ -83,29 +83,6 @@ const Grid = () => {
         }
     };
 
-    // const handleNumberInput = (number) => {
-    //     if (selectedCell && number >= 1 && number <= board.length) {
-    //         const cellKey = `${selectedCell.row}-${selectedCell.col}`;
-    //         const newInputs = { ...userInputs };
-
-    //         // Si la celda está vacía, inicializamos con el primer número
-    //         if (!newInputs[cellKey]) {
-    //             newInputs[cellKey] = [number];
-    //         } else {
-    //             // Si el número ya está en la lista, lo eliminamos, de lo contrario, lo añadimos
-    //             if (newInputs[cellKey].includes(number)) {
-    //                 newInputs[cellKey] = newInputs[cellKey].filter(n => n !== number);
-    //             } else {
-    //                 newInputs[cellKey] = [...newInputs[cellKey], number];
-    //             }
-    //         }
-
-    //         setUserInputs(newInputs); // Actualiza el estado de userInputs
-    //         isBoardComplete(newInputs);
-    //         // No limpiamos la selección de la celda para permitir más entradas
-    //     }
-    // };
-
     const handleNumberInput = (number) => {
         if (selectedCell && number >= 1 && number <= board.length) {
             const cellKey = `${selectedCell.row}-${selectedCell.col}`;
@@ -148,7 +125,7 @@ const Grid = () => {
             row.map((cell, colIndex) => {
                 const cellKey = `${rowIndex}-${colIndex}`;
                 // Verifica si el usuario ingresó un número en esa celda
-                return userInputs[cellKey]?.[0] || cell;
+                return  userInputs[cellKey]?.[0]?.number || cell;
             })
         );
 
