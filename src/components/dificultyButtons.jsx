@@ -24,7 +24,7 @@ const DificultyButtons = ({ handleSelectionChange }) => {
         <div className='dificultyButtonsContainer'>
             <h2 style={{ marginBottom: "-15px" }}>Nueva partida:</h2>
             <div className='dificultyButtons'>
-                <button onClick={() => handleDifficultyClick(2)}></button>
+                {/* <button onClick={() => handleDifficultyClick(2)}></button> */}
                 <button onClick={() => handleDifficultyClick(3)}>Sudoku</button>
                 <button onClick={() => handleDifficultyClick(4)}>Mega Sudoku</button>
                 <p>
